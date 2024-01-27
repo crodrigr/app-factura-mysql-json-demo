@@ -1,0 +1,28 @@
+[ {
+  "id" : 0,
+  "nombre" : "camilo",
+  "apellido" : "rodriguez",
+  "email" : "crodrigr@gmail.com",
+  "direccion" : "314555887",
+  "celular" : "xxxx",
+  "documento" : "001",
+  "fullName" : "camilo rodriguez"
+}, {
+  "id" : 0,
+  "nombre" : "juan",
+  "apellido" : "domingeuz",
+  "email" : "jdominguez@gmail.com",
+  "direccion" : "31548877",
+  "celular" : "xxx",
+  "documento" : "002",
+  "fullName" : "juan domingeuz"
+}, {
+  "id" : 0,
+  "nombre" : "XXXX",
+  "apellido" : "XXXX",
+  "email" : "XXXXX@XXXX.OXX",
+  "direccion" : "XXXX",
+  "celular" : "XXXX",
+  "documento" : "008",
+  "fullName" : "XXXX XXXX"
+} ]

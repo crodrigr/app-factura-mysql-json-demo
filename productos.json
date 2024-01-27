@@ -1,0 +1,17 @@
+[ {
+  "codigo" : 19,
+  "nombre" : "Tv Sony 45\"",
+  "descripcion" : "",
+  "precioVenta" : 1500000.0,
+  "precioCompra" : 1000000.0,
+  "codigoNombre" : "19 Tv Sony 45\" $ 1.500.000,00",
+  "utilidad" : 500000.0
+}, {
+  "codigo" : 21,
+  "nombre" : "2",
+  "descripcion" : "",
+  "precioVenta" : 8888.0,
+  "precioCompra" : 99999.0,
+  "codigoNombre" : "21 2 $ 8.888,00",
+  "utilidad" : -91111.0
+} ]
