@@ -44,8 +44,8 @@ public class ServiceProductoImpl implements ServiceProducto {
     }
 
     @Override
-    public void eliminar(int codigo) {
-        this.crudRepositoryProducto.eliminar(codigo);
+    public void eliminar(Producto producto) {
+        this.crudRepositoryProducto.eliminar(producto);
     }
     
 }

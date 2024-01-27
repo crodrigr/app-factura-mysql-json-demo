@@ -14,7 +14,7 @@ public interface RepositoryProducto {
 
     void editar(Producto producto);
 
-    void eliminar(int codigo);
+    void eliminar(Producto codigo);
     
     
 }

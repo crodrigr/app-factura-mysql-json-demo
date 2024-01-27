@@ -49,9 +49,9 @@ public class RepositoryProductoListImpl implements RepositoryProducto{
     }
 
     @Override
-    public void eliminar(int codigo) {
+    public void eliminar(Producto prod) {
         for (Producto producto : conexion.getListaProductos()) {
-            if (producto.getCodigo() == codigo) {
+            if (producto.getCodigo() == prod.getCodigo()) {
                 conexion.getListaProductos().remove(producto);
                 break;
             }

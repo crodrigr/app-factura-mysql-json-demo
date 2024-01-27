@@ -2,19 +2,15 @@ package com.campusland.views;
 
 import java.util.Scanner;
 
-import com.campusland.respository.impl.implcliente.RepositoryClientJsonImpl;
 import com.campusland.respository.impl.implcliente.RepositoryClientMysqlImpl;
-import com.campusland.respository.impl.implcliente.RepositoryClienteListImpl;
 import com.campusland.respository.impl.implfactura.RepositoryFacturaImp;
-import com.campusland.respository.impl.implproducto.RepositoryProductoJsonImpl;
-import com.campusland.respository.impl.implproducto.RepositoryProductoListImpl;
+import com.campusland.respository.impl.implproducto.RepositoryProductoMysqlImpl;
 import com.campusland.services.ServiceCliente;
 import com.campusland.services.ServiceFactura;
 import com.campusland.services.ServiceProducto;
 import com.campusland.services.impl.ServiceClienteImpl;
 import com.campusland.services.impl.ServiceFacturaImpl;
 import com.campusland.services.impl.ServiceProductoImpl;
-import com.campusland.utils.Configuracion;
 
 public class ViewMain {
 
@@ -22,14 +18,12 @@ public class ViewMain {
     //public static final ServiceCliente serviceCliente = new ServiceClienteImpl(new RepositoryClientJsonImpl());
     public static final ServiceCliente serviceCliente = new ServiceClienteImpl(new RepositoryClientMysqlImpl());
     //public static final ServiceProducto serviceProducto = new ServiceProductoImpl(new RepositoryProductoListImpl());
-    public static final ServiceProducto serviceProducto = new ServiceProductoImpl(new RepositoryProductoJsonImpl());
+    //public static final ServiceProducto serviceProducto = new ServiceProductoImpl(new RepositoryProductoJsonImpl());
+    public static final ServiceProducto serviceProducto = new ServiceProductoImpl(new RepositoryProductoMysqlImpl());
     public static final ServiceFactura serviceFactura = new ServiceFacturaImpl(new RepositoryFacturaImp());
     public static final Scanner leer = new Scanner(System.in);
 
-    public static void main(String[] args) {
-         System.out.println(Configuracion.obtenerValor("db.url"));
-         System.out.println(Configuracion.obtenerValor("db.username"));
-         System.out.println(Configuracion.obtenerValor("db.password"));
+    public static void main(String[] args)throws Exception {      
         int op = 0;
 
         do {

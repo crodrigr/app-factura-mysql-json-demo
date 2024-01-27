@@ -54,11 +54,11 @@ public class RepositoryProductoJsonImpl implements RepositoryProducto {
     }
 
     @Override
-    public void eliminar(int codigo) {
+    public void eliminar(Producto prod) {
         List<Producto> listProducto = conexion.getData(Producto.class);
         boolean change = false;
         for (Producto producto : listProducto) {
-            if (producto.getCodigo()==codigo) {
+            if (producto.getCodigo()==prod.getCodigo()) {
                 listProducto.remove(producto);
                 change = true;
                 break;

@@ -15,6 +15,6 @@ public interface ServiceProducto {
 
     void editar(Producto cliente);
 
-    void eliminar(int codigo);
+    void eliminar(Producto codigo);
 
 }

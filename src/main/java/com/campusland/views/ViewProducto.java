@@ -122,6 +122,7 @@ public class ViewProducto extends ViewMain {
                 double precioVenta = leer.nextDouble();
                 productoActual.setPrecioVenta(precioVenta);
             }
+            leer.nextLine();
             System.out.println("Modificar precio compra: si o no? ");
             opcion = leer.nextLine();
 
@@ -130,7 +131,7 @@ public class ViewProducto extends ViewMain {
                 double precioCompra = leer.nextDouble();
                 productoActual.setPrecioCompra(precioCompra);
             }
-
+            leer.nextLine();
             System.out.println("Descripción: si o no? ");
             opcion = leer.nextLine();
 
@@ -147,7 +148,7 @@ public class ViewProducto extends ViewMain {
     public static void eliminarProducto() {       
         Producto producto = buscarGetProducto();
         if (producto != null) {
-            serviceProducto.eliminar(producto.getCodigo());
+            serviceProducto.eliminar(producto);
             System.out.println("El producto se elmino correctamente ");
         } else {
             System.out.println("Se presento un proplema y no se puedo eliminar el producto ");
