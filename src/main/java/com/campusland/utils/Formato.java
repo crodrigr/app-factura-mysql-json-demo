@@ -1,5 +1,6 @@
 package com.campusland.utils;
 
+import java.sql.Timestamp;
 import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -21,6 +22,10 @@ public class Formato {
         NumberFormat formatoMoneda = NumberFormat.getCurrencyInstance(colombiaLocal);
         return formatoMoneda.format(monto);
 
+    }
+
+    public static LocalDateTime convertirTimestampFecha(Timestamp timestamp) {
+        return (timestamp != null) ? timestamp.toLocalDateTime() : null;
     }
 
 }

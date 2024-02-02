@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.campusland.respository.impl.implcliente.RepositoryClientMysqlImpl;
 import com.campusland.respository.impl.implfactura.RepositoryFacturaImp;
+import com.campusland.respository.impl.implfactura.RepositoryFacturaMysqlImpl;
 import com.campusland.respository.impl.implproducto.RepositoryProductoMysqlImpl;
 import com.campusland.services.ServiceCliente;
 import com.campusland.services.ServiceFactura;
@@ -20,7 +21,7 @@ public class ViewMain {
     //public static final ServiceProducto serviceProducto = new ServiceProductoImpl(new RepositoryProductoListImpl());
     //public static final ServiceProducto serviceProducto = new ServiceProductoImpl(new RepositoryProductoJsonImpl());
     public static final ServiceProducto serviceProducto = new ServiceProductoImpl(new RepositoryProductoMysqlImpl());
-    public static final ServiceFactura serviceFactura = new ServiceFacturaImpl(new RepositoryFacturaImp());
+    public static final ServiceFactura serviceFactura = new ServiceFacturaImpl(new RepositoryFacturaMysqlImpl());
     public static final Scanner leer = new Scanner(System.in);
 
     public static void main(String[] args)throws Exception {      

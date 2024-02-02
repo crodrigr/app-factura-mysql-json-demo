@@ -18,6 +18,18 @@ public class Producto {
         this.codigo = ++nextCodigo;
     }
 
+    
+
+    public Producto(int codigo, String nombre, String descripcion, double precioVenta, double precioCompra) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precioVenta = precioVenta;
+        this.precioCompra = precioCompra;
+    }
+
+
+
     public Producto(String nombre, double precioVenta, double precioCompra, String descripcion) {
         this.codigo = ++nextCodigo;
         this.nombre = nombre;

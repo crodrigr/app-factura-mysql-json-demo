@@ -17,6 +17,15 @@ public class Factura {
     private List<ItemFactura> items;
     private static int nextNumeroFactura;
 
+  
+
+    public Factura(int numeroFactura, LocalDateTime fecha, Cliente cliente) {
+        this.numeroFactura = numeroFactura;
+        this.fecha = fecha;
+        this.cliente = cliente;
+        this.items = new ArrayList<>();
+    }
+
     public Factura(LocalDateTime fecha, Cliente cliente) {
         this.numeroFactura = ++nextNumeroFactura;
         this.fecha = fecha;
