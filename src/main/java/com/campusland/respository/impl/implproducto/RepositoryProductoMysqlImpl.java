@@ -22,7 +22,8 @@ public class RepositoryProductoMysqlImpl implements RepositoryProducto {
     public List<Producto> listar() {
          List<Producto> listProducto = new ArrayList<>();
 
-        try (Statement stmt = getConnection().createStatement();
+        try (Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM producto")) {
             while (rs.next()) {
                 listProducto.add(crearProducto(rs));
@@ -38,7 +39,8 @@ public class RepositoryProductoMysqlImpl implements RepositoryProducto {
     public Producto porCodigo(int codigo) {
         Producto producto = null;
 
-        try (PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM producto WHERE codigo=?")) {
+        try (Connection conn = getConnection();
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM producto WHERE codigo=?")) {
             stmt.setInt(1, codigo);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -56,7 +58,8 @@ public class RepositoryProductoMysqlImpl implements RepositoryProducto {
     public void crear(Producto producto) {
         String sql = "INSERT INTO producto(nombre, descripcion,precioVenta,precioCompra) VALUES(?,?,?,?)";
 
-        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+        try (Connection conn = getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, producto.getNombre());
             stmt.setString(2, producto.getDescripcion());
             stmt.setDouble(3, producto.getPrecioVenta());
@@ -72,7 +75,8 @@ public class RepositoryProductoMysqlImpl implements RepositoryProducto {
     public void editar(Producto producto) {       
         String sql = "UPDATE producto SET nombre=?, descripcion=?,precioVenta=?,precioCompra=? WHERE codigo=? ";
 
-        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+        try (Connection conn = getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, producto.getNombre());
             stmt.setString(2, producto.getDescripcion());
             stmt.setDouble(3, producto.getPrecioVenta());
@@ -86,7 +90,8 @@ public class RepositoryProductoMysqlImpl implements RepositoryProducto {
 
     @Override
     public void eliminar(Producto producto) {
-        try (PreparedStatement stmt = getConnection().prepareStatement("DELETE FROM producto WHERE codigo=?")) {
+        try (Connection conn = getConnection();
+            PreparedStatement stmt = conn.prepareStatement("DELETE FROM producto WHERE codigo=?")) {
             stmt.setInt(1, producto.getCodigo());
             stmt.executeUpdate();
         } catch (SQLException throwables) {

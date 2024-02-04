@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.campusland.utils.Formato;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
@@ -12,10 +13,15 @@ import lombok.Data;
 public class Factura {
 
     private int numeroFactura;
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")    
     private LocalDateTime fecha;
     private Cliente cliente;
     private List<ItemFactura> items;
     private static int nextNumeroFactura;
+
+    public Factura(){
+
+    }
 
   
 

@@ -1,6 +1,6 @@
 package com.campusland.views;
 
-import com.campusland.exceptiones.clienteexceptions.ProductoNullException;
+import com.campusland.exceptiones.productoexceptions.ProductoNullException;
 import com.campusland.respository.models.Producto;
 
 public class ViewProducto extends ViewMain {
@@ -19,7 +19,7 @@ public class ViewProducto extends ViewMain {
                 case 2:
                     listarProducto();
                     break;
-                case 3:
+                case 3:                   
                     buscarProducto();
                     break;
                 case 4:
@@ -70,9 +70,8 @@ public class ViewProducto extends ViewMain {
         }
     }
 
-    public static void buscarProducto() {
-        System.out.println("Busqueda de producto ");
-        leer.nextLine();
+    public static void buscarProducto() {  
+        System.out.println("Busqueda de producto ");      
         System.out.print("Codigo: ");
         int codigo = leer.nextInt();
         try {
@@ -86,7 +85,6 @@ public class ViewProducto extends ViewMain {
 
     public static Producto buscarGetProducto() {
         System.out.println("Busqueda de producto ");
-        leer.nextLine();
         System.out.print("Codigo: ");
         int codigo = leer.nextInt();
         try {

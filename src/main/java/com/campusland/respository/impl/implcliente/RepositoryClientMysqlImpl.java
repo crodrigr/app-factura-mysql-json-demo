@@ -22,7 +22,8 @@ public class RepositoryClientMysqlImpl implements RepositoryCliente {
     public List<Cliente> listar() {
         List<Cliente> listClientes = new ArrayList<>();
 
-        try (Statement stmt = getConnection().createStatement();
+        try (Connection conn = getConnection();
+                Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM cliente")) {
             while (rs.next()) {
                 listClientes.add(crearCliente(rs));
@@ -38,7 +39,8 @@ public class RepositoryClientMysqlImpl implements RepositoryCliente {
     public Cliente porDocumento(String documento) {
         Cliente cliente = null;
 
-        try (PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM cliente WHERE documento=?")) {
+        try (Connection conn = getConnection();
+                PreparedStatement stmt = conn.prepareStatement("SELECT * FROM cliente WHERE documento=?")) {
             stmt.setString(1, documento);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -50,13 +52,14 @@ public class RepositoryClientMysqlImpl implements RepositoryCliente {
         }
         return cliente;
     }
-   
+
     @Override
     public void crear(Cliente cliente) {
 
         String sql = "INSERT INTO cliente(nombre, apellido,email,direccion,celular,documento) VALUES(?,?,?,?,?,?)";
 
-        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+        try (Connection conn = getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, cliente.getNombre());
             stmt.setString(2, cliente.getApellido());
             stmt.setString(3, cliente.getEmail());
@@ -71,14 +74,15 @@ public class RepositoryClientMysqlImpl implements RepositoryCliente {
 
     @Override
     public void editar(Cliente cliente) {
-        String sql = "UPDATE cliente SET nombre=?, apellido=?, email=?, direccion=?, celular=? WHERE id=?";       
-        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+        String sql = "UPDATE cliente SET nombre=?, apellido=?, email=?, direccion=?, celular=? WHERE id=?";
+        try (Connection conn = getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, cliente.getNombre());
             stmt.setString(2, cliente.getApellido());
             stmt.setString(3, cliente.getEmail());
             stmt.setString(4, cliente.getDireccion());
             stmt.setString(5, cliente.getCelular());
-            stmt.setInt(6, cliente.getId());          
+            stmt.setInt(6, cliente.getId());
             stmt.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -87,7 +91,8 @@ public class RepositoryClientMysqlImpl implements RepositoryCliente {
 
     @Override
     public void eliminar(Cliente cliente) {
-        try (PreparedStatement stmt = getConnection().prepareStatement("DELETE FROM cliente WHERE id=?")) {
+        try (Connection conn = getConnection();
+                PreparedStatement stmt = conn.prepareStatement("DELETE FROM cliente WHERE id=?")) {
             stmt.setInt(1, cliente.getId());
             stmt.executeUpdate();
         } catch (SQLException throwables) {

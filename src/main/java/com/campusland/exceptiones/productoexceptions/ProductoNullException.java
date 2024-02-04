@@ -1,4 +1,4 @@
-package com.campusland.exceptiones.clienteexceptions;
+package com.campusland.exceptiones.productoexceptions;
 
 public class ProductoNullException extends ProductoException {
 

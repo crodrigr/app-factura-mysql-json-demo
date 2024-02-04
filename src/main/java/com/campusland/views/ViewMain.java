@@ -3,7 +3,7 @@ package com.campusland.views;
 import java.util.Scanner;
 
 import com.campusland.respository.impl.implcliente.RepositoryClientMysqlImpl;
-import com.campusland.respository.impl.implfactura.RepositoryFacturaImp;
+import com.campusland.respository.impl.implfactura.RepositoryFacturaJsonImpl;
 import com.campusland.respository.impl.implfactura.RepositoryFacturaMysqlImpl;
 import com.campusland.respository.impl.implproducto.RepositoryProductoMysqlImpl;
 import com.campusland.services.ServiceCliente;
@@ -15,16 +15,13 @@ import com.campusland.services.impl.ServiceProductoImpl;
 
 public class ViewMain {
 
-    //public static final ServiceCliente serviceCliente = new ServiceClienteImpl(new CrudReposotoryClienteImp());
-    //public static final ServiceCliente serviceCliente = new ServiceClienteImpl(new RepositoryClientJsonImpl());
-    public static final ServiceCliente serviceCliente = new ServiceClienteImpl(new RepositoryClientMysqlImpl());
-    //public static final ServiceProducto serviceProducto = new ServiceProductoImpl(new RepositoryProductoListImpl());
-    //public static final ServiceProducto serviceProducto = new ServiceProductoImpl(new RepositoryProductoJsonImpl());
+ 
+    public static final ServiceCliente serviceCliente = new ServiceClienteImpl(new RepositoryClientMysqlImpl());    
     public static final ServiceProducto serviceProducto = new ServiceProductoImpl(new RepositoryProductoMysqlImpl());
-    public static final ServiceFactura serviceFactura = new ServiceFacturaImpl(new RepositoryFacturaMysqlImpl());
+    public static final ServiceFactura serviceFactura = new ServiceFacturaImpl(new RepositoryFacturaMysqlImpl(),new RepositoryFacturaJsonImpl());
     public static final Scanner leer = new Scanner(System.in);
 
-    public static void main(String[] args)throws Exception {      
+    public static void main(String[] args) {      
         int op = 0;
 
         do {

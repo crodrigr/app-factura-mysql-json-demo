@@ -2,7 +2,7 @@ package com.campusland.services;
 
 import java.util.List;
 
-import com.campusland.exceptiones.clienteexceptions.ProductoNullException;
+import com.campusland.exceptiones.productoexceptions.ProductoNullException;
 import com.campusland.respository.models.Producto;
 
 public interface ServiceProducto {

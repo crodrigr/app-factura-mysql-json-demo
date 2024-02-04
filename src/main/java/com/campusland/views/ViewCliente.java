@@ -53,8 +53,8 @@ public class ViewCliente extends ViewMain {
     }
 
     public static Cliente buscarGetCliente() {
-        System.out.println("Busqueda de cliente ");
-        leer.nextLine();
+        System.out.println("Busqueda de cliente "); 
+        leer.nextLine();       
         System.out.print("Documento: ");
         String documento = leer.nextLine();
 
