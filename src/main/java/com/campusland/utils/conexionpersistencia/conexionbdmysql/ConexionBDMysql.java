@@ -19,4 +19,12 @@ public class ConexionBDMysql {
 
     }
 
+    /*public static Connection getInstance()throws SQLException{
+        if(connection==null){
+           connection=DriverManager.getConnection(url, username, password);
+        }
+        return connection;
+    }*/
+
+
 }
